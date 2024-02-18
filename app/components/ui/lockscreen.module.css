@@ -1,0 +1,25 @@
+.lockscreen {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.lockscreen_bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.overlay {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 2;
+    transition: 1500ms;
+}
+
+.overlay:hover {
+    backdrop-filter: blur(20px);
+}
