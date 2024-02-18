@@ -1,6 +1,11 @@
+import Lockscreen from "./components/ui/Lockscreen";
+
 export default function Home() {
   return (
-    <main>
-    </main>
+    <div>
+      <Lockscreen></Lockscreen>
+      <main>
+      </main>
+    </div>
   );
 }
