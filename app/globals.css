@@ -8,6 +8,8 @@
     --gray-color: #aaaaaa;
     --dark-gray-color: #585858;
     --dark-color: #333333;
+    --light-shadows: #00000038;
+    --heavy-shadows: #00000098;
 }
 
 /* General declarations */

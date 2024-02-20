@@ -5,20 +5,68 @@
 }
 
 .lockscreen_bg {
-    position: fixed;
     width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
     height: 100%;
+    width: 100%;
     object-fit: cover;
     z-index: 1;
 }
 
 .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100vh;
-    position: fixed;
     z-index: 2;
     transition: 1500ms;
     display: flex;
     align-items: center;
+}
+
+.aside {
+    height: 100vh;
+    width: 100%;
+    max-width: 320px;
+    margin-left: 2rem;
+}
+
+.content {
+    width: calc(100% - 320px);
+    height: 100vh;
+}
+
+.clockSpace {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    align-items: flex-end;
     justify-content: center;
+    padding-bottom: 1rem;
+}
+
+.notificationArea {
+    width: 100%;
+    height: 60%;
+}
+
+@media (max-width: 820px) {
+    .aside {
+        width: 270px;
+    }
+    .content {
+        width: calc(100% - 270px);
+    }
+}
+
+@media (max-width: 720px) {
+    .aside {
+        display: none;
+    }
+    .content {
+        width: 100%;
+    }
 }
