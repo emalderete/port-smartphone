@@ -2,6 +2,7 @@ import Image from "next/image";
 import TwilightBG from '../../../public/ui/twilight-bg.jpg';
 import Clock from "./Clock";
 import Reminders from "./Reminders";
+import Notifications from "./Notifications";
 import styles from './lockscreen.module.css';
 
 function Lockscreen() {
@@ -17,7 +18,7 @@ function Lockscreen() {
                         <Clock></Clock>
                     </div>
                     <div className={styles.notificationArea}>
-
+                        <Notifications></Notifications>
                     </div>
                 </div>
             </div>
