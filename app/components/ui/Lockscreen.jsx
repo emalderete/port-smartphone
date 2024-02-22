@@ -3,6 +3,7 @@ import TwilightBG from '../../../public/ui/twilight-bg.jpg';
 import Clock from "./Clock";
 import Reminders from "./Reminders";
 import Notifications from "./Notifications";
+import CurrentDate from "./CurrentDate";
 import styles from './lockscreen.module.css';
 
 function Lockscreen() {
@@ -12,6 +13,7 @@ function Lockscreen() {
             <div className={styles.overlay}>
                 <aside className={styles.aside}>
                     <Reminders></Reminders>
+                    <CurrentDate></CurrentDate>
                 </aside>
                 <div className={styles.content}>
                     <div className={styles.clockSpace}>

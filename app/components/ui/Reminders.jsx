@@ -23,7 +23,7 @@ function Reminders() {
     }, [])
 
     return (
-        <div className={styles.container}>
+        <div className='widget-container'>
             <div className={styles.content}>
                 <h4 className={styles.title}>Recordatorios</h4>
                 <ul className={styles.list}>
