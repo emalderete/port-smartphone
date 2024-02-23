@@ -4,7 +4,7 @@ import styles from './currentdate.module.css';
 
 function CurrentDate() {
     const [date, setDate] = useState([]);
-    
+
     useEffect(()=>{
 
         function currentDate() {
@@ -15,7 +15,7 @@ function CurrentDate() {
             let currentYear = currentDate.getFullYear();
             const daysOfWeek = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
             const monthsOfYear = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-            
+
             currentDayWeek = daysOfWeek[currentDayWeek];
             currentMonth = monthsOfYear[currentMonth];
 
