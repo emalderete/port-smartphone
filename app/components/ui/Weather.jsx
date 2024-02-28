@@ -12,6 +12,61 @@ import cloudSunImg from '@/public/ui/weather/cloud-sun-solid.svg';
 import sunImg from '@/public/ui/weather/sun-solid.svg';
 
 function Weather() {
+    const [temp, setTem] = useState();
+    const [city, setCity] = useState();
+    const [status, setStatus] = useState();
+
+    useEffect(()=>{
+    let domain = window.location.origin;
+    let api = domain + '/api/weather';
+
+    if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(location => {
+            var lat = location.coords.latitude;
+            var lon = location.coords.longitude;
+
+            fetch(api, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    'latitude': lat,
+                    'longitude': lon
+                })
+            })
+            .then(response => response.json())
+            .then(dataJson => {
+                setTem(dataJson.data.main.temp);
+                setCity(dataJson.data.name);
+                setStatus(dataJson.data.weather[0].id);
+            })
+        })
+    } else {
+        console.log('Este navegador no es compatible con la geolocalización');
+    }
+}, []);
+
+    function weatherStatus(id){
+        if(id >= 200 && id <= 232) {
+            return thunderImg;
+        } else if(id >= 300 && id <= 321) {
+            return rainImg;
+        } else if(id >= 500 && id <= 531) {
+            return heavyRainImg;
+        } else if(id >= 600 && id <= 622) {
+            return snowImg;
+        } else if(id >= 701 && id <= 781) {
+            return fogImg;
+        } else if(id === 800) {
+            return sunImg;
+        } else if(id === 801) {
+            return cloudSunImg;
+        } else if(id >= 802 && id <= 804) {
+            return cloudImg;
+        }
+    }
+
     return (
         <div className='widget-container'>
             <h4 className={styles.city}>{city}</h4>
