@@ -15,12 +15,14 @@ function Weather() {
     const [temp, setTem] = useState();
     const [city, setCity] = useState();
     const [status, setStatus] = useState();
+    const [weatherAvailable, setWeatherAvailable] = useState();
 
     useEffect(()=>{
     let domain = window.location.origin;
     let api = domain + '/api/weather';
 
     if(navigator.geolocation) {
+
         navigator.geolocation.getCurrentPosition(location => {
             var lat = location.coords.latitude;
             var lon = location.coords.longitude;
@@ -41,9 +43,25 @@ function Weather() {
                 setCity(dataJson.data.name);
                 setStatus(dataJson.data.weather[0].id);
             })
+            setWeatherAvailable(true);
+        }, (error) => {
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                    setWeatherAvailable(false);
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    setWeatherAvailable(false);
+                    break;
+                case error.UNKNOWN_ERROR:
+                    setWeatherAvailable(false);
+                    break;
+                case error.TIMEOUT:
+                    setWeatherAvailable(false);
+                    break;
+            }
         })
     } else {
-        console.log('Este navegador no es compatible con la geolocalización');
+        console.log('Navegador no compatible con la geolocalización.')
     }
 }, []);
 
@@ -69,7 +87,7 @@ function Weather() {
 
     return (
         <div className='widget-container'>
-            <h4 className={styles.city}>{city}</h4>
+            <h4 className={styles.city}>{weatherAvailable ? city : 'Clima de tu ciudad no disponible'}</h4>
             <div className={styles.content}>
                 <div className={styles.inner}>
                     <div className={styles.image}>
@@ -77,7 +95,7 @@ function Weather() {
                     </div>
                 </div>
                 <div className={styles.inner}>
-                    <h2 className={styles.temp}>{parseInt(temp)}</h2>
+                    <h2 className={styles.temp}>{weatherAvailable ? parseInt(temp) + '°' : ''}</h2>
                 </div>
             </div>
         </div>
