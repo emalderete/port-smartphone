@@ -3,9 +3,14 @@
     align-items: center;
     justify-content: center;
     width: fit-content;
+    box-shadow: 2px 2px 2px var(--light-shadows), inset 2px 2px 2px #ffffff78;
+    backdrop-filter: blur(5px);
+    border-radius: 100%;
+    width: 220px;
+    height: 220px;
 }
 
 .time {
-    font-size: 7em;
+    font-size: 5em;
     color: var(--light-color);
 }
