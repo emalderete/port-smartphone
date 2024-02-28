@@ -1,0 +1,64 @@
+.content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.inner {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.temp {
+    font-size: 6em;
+    text-align: center;
+    color: var(--light-color);
+}
+
+.image {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img {
+    color: var(--light-color);
+    width: 60%;
+}
+
+.info {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.infoInner {
+    display: flex;
+    align-items: center;
+}
+
+.tempIcon {
+    width: 17px;
+    height: 17px;
+}
+
+.data {
+    color: var(--light-color);
+    margin-left: 0.4rem;
+}
+
+.city {
+    color: var(--light-color);
+    font-size: 1.4em;
+    text-align: center;
+}
