@@ -6,7 +6,6 @@ function CurrentDate() {
     const [date, setDate] = useState([]);
 
     useEffect(()=>{
-
         function currentDate() {
             let currentDate = new Date();
             let currentDay = currentDate.getDate();
@@ -15,17 +14,16 @@ function CurrentDate() {
             let currentYear = currentDate.getFullYear();
             const daysOfWeek = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
             const monthsOfYear = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-
             currentDayWeek = daysOfWeek[currentDayWeek];
             currentMonth = monthsOfYear[currentMonth];
 
             if (currentDay < 10) {
-                currentDay = '0' + currentDate;
+                currentDay = '0' + currentDay;
             }
 
             var dateArray = [currentDay, currentDayWeek, currentMonth, currentYear];
 
-            if (JSON.stringify(date) !== JSON.stringify(dateArray)) {
+            if (date !== dateArray) {
                 setDate(dateArray);
             }
         }
@@ -35,7 +33,7 @@ function CurrentDate() {
         const updateInterval = setInterval((currentDate), 1000);
 
         return () => {clearInterval(updateInterval)}
-    }, [date])
+    }, []);
 
     return (
         <div className={`widget-container ${styles.container}`}>
