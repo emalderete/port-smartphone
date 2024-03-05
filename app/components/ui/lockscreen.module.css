@@ -32,6 +32,12 @@
     width: 100%;
     max-width: 320px;
     margin-left: 2rem;
+    overflow: auto;
+    scrollbar-width: none;
+}
+
+.aside::-webkit-scrollbar {
+    width: 1px;
 }
 
 .content {

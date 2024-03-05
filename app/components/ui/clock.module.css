@@ -2,6 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     width: fit-content;
     box-shadow: 2px 2px 2px var(--light-shadows), inset 2px 2px 2px #ffffff78;
     backdrop-filter: blur(5px);
@@ -13,4 +14,26 @@
 .time {
     font-size: 5em;
     color: var(--light-color);
+}
+
+.date {
+    color: var(--light-color);
+    margin-top: -7rem;
+}
+
+.weather {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    margin-bottom: -5rem;
+}
+
+.temp {
+    color: var(--light-color);
+}
+
+.weatherStatus {
+    width: 1.5em;
 }

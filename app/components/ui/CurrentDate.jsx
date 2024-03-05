@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import styles from './currentdate.module.css';
 
-function CurrentDate() {
+function CurrentDate(props) {
     const [date, setDate] = useState([]);
 
     useEffect(()=>{
@@ -25,6 +25,7 @@ function CurrentDate() {
 
             if (date !== dateArray) {
                 setDate(dateArray);
+                props.setSharedDate(dateArray);
             }
         }
 
@@ -33,6 +34,7 @@ function CurrentDate() {
         const updateInterval = setInterval((currentDate), 1000);
 
         return () => {clearInterval(updateInterval)}
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (

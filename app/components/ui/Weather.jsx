@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import styles from './weather.module.css';
 import cloudImg from '@/public/ui/weather/cloud-solid.svg';
@@ -11,11 +11,12 @@ import fogImg from '@/public/ui/weather/smog-solid.svg';
 import cloudSunImg from '@/public/ui/weather/cloud-sun-solid.svg';
 import sunImg from '@/public/ui/weather/sun-solid.svg';
 
-function Weather() {
+function Weather(props) {
     const [temp, setTem] = useState();
     const [city, setCity] = useState();
     const [status, setStatus] = useState();
     const [weatherAvailable, setWeatherAvailable] = useState();
+    const sharedWeather = useRef(null);
 
     useEffect(()=>{
     let domain = window.location.origin;
@@ -42,6 +43,7 @@ function Weather() {
                 setTem(dataJson.data.main.temp);
                 setCity(dataJson.data.name);
                 setStatus(dataJson.data.weather[0].id);
+                sharedWeather.current = [dataJson.data.main.temp, dataJson.data.weather[0].id];
             })
             setWeatherAvailable(true);
         }, (error) => {
@@ -64,6 +66,8 @@ function Weather() {
         console.log('Navegador no compatible con la geolocalización.')
     }
 }, []);
+
+    props.setSharedWeather(sharedWeather.current);
 
     function weatherStatus(id){
         if(id >= 200 && id <= 232) {
