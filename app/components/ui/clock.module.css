@@ -13,27 +13,74 @@
 
 .time {
     font-size: 5em;
+    margin-bottom: 3rem;
     color: var(--light-color);
 }
 
 .date {
     color: var(--light-color);
     margin-top: -7rem;
-}
-
-.weather {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 7px;
-    margin-bottom: -5rem;
+    display: none;
 }
 
 .temp {
     color: var(--light-color);
 }
 
-.weatherStatus {
-    width: 1.5em;
+.lockIconContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: -4rem;
+}
+
+.lockIcon {
+    width: 25px;
+    animation: animatedLock infinite 10000ms linear;
+}
+
+@keyframes animatedLock {
+    0% {
+        transform: rotateZ(0);
+    }
+    1% {
+        transform: rotateZ(20deg) scale(1.2);
+    }
+    2% {
+        transform: rotateZ(-20deg) scale(1.2);
+    }
+    3% {
+        transform: rotateZ(20deg) scale(1.2);
+    }
+    4% {
+        transform: rotateZ(-20deg) scale(1.2);
+    }
+    5% {
+        transform: rotateZ(20deg) scale(1.2);
+    }
+    6% {
+        transform: rotateZ(-20deg) scale(1.2);
+    }
+    7% {
+        transform: rotateZ(20deg) scale(1.2);
+    }
+    8% {
+        transform: rotateZ(-20deg) scale(1.2);
+    }
+    9% {
+        transform: rotateZ(0) scale(1);
+    }
+}
+
+@media (max-width: 720px) {
+    .time {
+        margin-bottom: 2rem;
+    }
+    .date {
+        display: block;
+    }
+    .time {
+        margin-top: 2rem;
+    }
 }

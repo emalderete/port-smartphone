@@ -45,9 +45,56 @@
     height: 100vh;
 }
 
+.toolbarArea {
+    width: 100%;
+    height: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.toolbar {
+    width: 100%;
+    max-width: 600px;
+    height: 100%;
+    background: rgb(255,255,255);
+    background: linear-gradient(42deg, #ffffff00 12%, #00000096 38%);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.batteryContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 2rem;
+    height: 100%;
+}
+
+.batteryImg {
+    width: 30px;
+}
+
+.batteryText {
+    color: var(--light-color);
+    margin-left: 0.5rem;
+}
+
+.wifiContainer {
+    height: 100%;
+    margin-right: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wifi {
+    width: 25px;
+}
+
 .clockSpace {
     width: 100%;
-    height: 40%;
+    height: 35%;
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -56,7 +103,40 @@
 
 .notificationArea {
     width: 100%;
-    height: 60%;
+    height: 55%;
+}
+
+.swipeArea {
+    width: 100%;
+    height: 5%;
+}
+
+.swipeContent {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.swipeChevron {
+    width: 30px;
+    transform: translateY(-10px);
+    animation: floatingSwipe infinite 2000ms ease-in-out;
+}
+
+@keyframes floatingSwipe {
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.swipeLegend {
+    color: var(--light-color);
+    text-align: center;
+    font-size: 1.5em;
+    width: 100%;
+    transform: translateY(-10px);
 }
 
 @media (max-width: 820px) {
@@ -74,5 +154,10 @@
     }
     .content {
         width: 100%;
+    }
+    .toolbar {
+        max-width: none;
+        width: 100%;
+        background: #000000bd;
     }
 }

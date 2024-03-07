@@ -6,12 +6,14 @@ import Reminders from "./Reminders";
 import Notifications from "./Notifications";
 import CurrentDate from "./CurrentDate";
 import Weather from "./Weather";
+import chevronUp from "@/public/ui/chevron-up.svg";
+import batFull from "@/public/ui/battery-full-solid.svg";
+import wifiIcon from "@/public/ui/signal.svg";
 import styles from './lockscreen.module.css';
 import { useState } from "react";
 
 function Lockscreen() {
     const [sharedDate, setSharedDate] = useState([]);
-    const [sharedWeather, setSharedWeather] = useState([]);
 
     return (
         <div className={styles.lockscreen}>
@@ -20,14 +22,31 @@ function Lockscreen() {
                 <aside className={styles.aside}>
                     <Reminders></Reminders>
                     <CurrentDate setSharedDate={setSharedDate}></CurrentDate>
-                    <Weather setSharedWeather={setSharedWeather}></Weather>
+                    <Weather></Weather>
                 </aside>
                 <div className={styles.content}>
+                    <div className={styles.toolbarArea}>
+                        <div className={styles.toolbar}>
+                            <div className={styles.wifiContainer}>
+                                <Image className={styles.wifi} src={wifiIcon} alt="" />
+                            </div>
+                            <div className={styles.batteryContainer}>
+                                <Image className={styles.batteryImg} src={batFull} alt="" />
+                                <h6 className={styles.batteryText}>100%</h6>
+                            </div>
+                        </div>
+                    </div>
                     <div className={styles.clockSpace}>
-                        <Clock sharedDate={sharedDate} sharedWeather={sharedWeather}></Clock>
+                        <Clock sharedDate={sharedDate}></Clock>
                     </div>
                     <div className={styles.notificationArea}>
                         <Notifications></Notifications>
+                    </div>
+                    <div className={styles.swipeArea}>
+                        <div className={styles.swipeContent}>
+                            <Image className={styles.swipeChevron} src={chevronUp} alt="" />
+                            <span className={styles.swipeLegend}>Deslizar</span>
+                        </div>
                     </div>
                 </div>
             </div>
