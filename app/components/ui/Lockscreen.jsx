@@ -10,10 +10,29 @@ import chevronUp from "@/public/ui/chevron-up.svg";
 import batFull from "@/public/ui/battery-full-solid.svg";
 import wifiIcon from "@/public/ui/signal.svg";
 import styles from './lockscreen.module.css';
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 function Lockscreen() {
     const [sharedDate, setSharedDate] = useState([]);
+    const swipeRef = useRef(null);
+    const swipe = swipeRef.current;
+
+    useEffect(()=>{
+        // Función de deslizar
+        let isAnimating = false;
+        let pullDeltaY = 0;
+
+        function startDrag(event){
+            if(isAnimating) {
+                return
+            } else {
+                const swipeButton = event.target(swipeRef.current);
+                console.log(event);
+            }
+        }
+    }, []);
+
+    
 
     return (
         <div className={styles.lockscreen}>
@@ -43,7 +62,7 @@ function Lockscreen() {
                         <Notifications></Notifications>
                     </div>
                     <div className={styles.swipeArea}>
-                        <div className={styles.swipeContent}>
+                        <div className={styles.swipeContent} ref={swipeRef} onClick={()=>{console.log('Inició el errastre')}}>
                             <Image className={styles.swipeChevron} src={chevronUp} alt="" />
                             <span className={styles.swipeLegend}>Deslizar</span>
                         </div>
