@@ -11,15 +11,9 @@ function Clock(props) {
         // Lógica del reloj
         function currentTime() {
             const currentDate = new Date();
-            var hours = currentDate.getHours();
-            var minutes = currentDate.getMinutes();
+            var hours = currentDate.getHours().toString().padStart(2, '0');
+            var minutes = currentDate.getMinutes().toString().padStart(2, '0');
 
-            if(hours < 10) {
-                var hours = '0' + hours;
-            }
-            if(minutes < 10) {
-                var minutes = '0' + minutes;
-            }
             var timeArray = [hours, minutes];
 
             if(JSON.stringify(time) !== JSON.stringify(timeArray)){
